@@ -9,6 +9,5 @@ export const DarkTheme: DefaultTheme = {
         border: "#000",
     },
     background: "#212121",
-    primaryFont: "Oswald",
-    secundaryFont: "Lato",
+    primaryFont: "Roboto",
 };
