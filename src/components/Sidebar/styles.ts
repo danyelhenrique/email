@@ -8,5 +8,21 @@ export const SidebarContainer = styled.aside`
 
     grid-area: sidebar;
     position: fixed;
-    top: 90px;
+    top: 98px;
+
+    nav {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        max-height: 300px;
+        overflow: scroll;
+        width: 100%;
+        overflow-x: hidden;
+        padding: 10px 0;
+
+        > ul {
+            width: 100%;
+        }
+    }
 `;

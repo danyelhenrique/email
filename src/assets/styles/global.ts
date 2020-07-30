@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { lighten } from "polished";
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
@@ -39,5 +40,24 @@ h1,h2,h3,h4,h5,h6,p,span,small,strong,input,button,a{
     font-family: ${({ theme }) => theme.primaryFont} ,sans-serif;
 
     font-weight: 400;
+}
+
+.scroll{
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.background} ;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.background} ;
+
+}
+::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => lighten(0.2, theme.background)} ;
+}
 }
 `;
