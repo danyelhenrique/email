@@ -1,22 +1,14 @@
 import React from "react";
 
-import Header from "../../components/Header";
-import Sidebar from "../../components/Sidebar";
-import MessagesPanel from "../../components/MessagesPanel";
+import InboxPanel from "../../components/InboxPanel";
 
-import { Main, Content } from "./styles";
+import { Content } from "./styles";
 
 const InBox: React.FC = () => {
     return (
-        <>
-            <Header />
-
-            <Main>
-                <Sidebar />
-                <MessagesPanel />
-                <Content />
-            </Main>
-        </>
+        <Content>
+            <InboxPanel />
+        </Content>
     );
 };
 

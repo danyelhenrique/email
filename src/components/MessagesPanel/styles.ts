@@ -30,7 +30,7 @@ export const MessagesPanelContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 8px 10px;
+        padding: 8px;
 
         svg {
             height: 20px;

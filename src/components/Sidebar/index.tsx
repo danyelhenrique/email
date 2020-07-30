@@ -69,13 +69,13 @@ interface IContent {
 const Sidebar: React.FC = () => {
     const [sidebarData, setSidebarData] = useState<ISidebar[] | null>(mock);
 
-    useEffect(() => {
-        async function createSidebarMenu() {
-            const { data } = await api.get<ISidebar[]>("menus");
-            setSidebarData(data);
-        }
-        createSidebarMenu();
-    }, []);
+    // useEffect(() => {
+    //     async function createSidebarMenu() {
+    //         const { data } = await api.get<ISidebar[]>("menus");
+    //         setSidebarData(data);
+    //     }
+    //     createSidebarMenu();
+    // }, []);
 
     function handleClick({ data }: { data: IContent }) {
         console.log("data", data);

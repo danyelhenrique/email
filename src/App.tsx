@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import InBox from "./pages/InBox";
+import Routes from "./router";
 
 import { DarkTheme } from "./assets/styles/themes";
 import GlobalStyle from "./assets/styles/global";
@@ -10,7 +10,7 @@ const App: React.FC = () => {
     return (
         <ThemeProvider theme={DarkTheme}>
             <GlobalStyle />
-            <InBox />
+            <Routes />
         </ThemeProvider>
     );
 };
