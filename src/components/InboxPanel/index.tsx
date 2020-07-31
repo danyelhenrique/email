@@ -1,23 +1,25 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, BtnCheck, BtnInbox, BtnFilter } from "./styles";
 import { MdCheckCircle, MdInbox, MdFilterList } from "react-icons/md";
 
 const InboxPanel: React.FC = () => {
     return (
         <Container>
-            <button>
-                <MdCheckCircle />
-            </button>
+            <div>
+                <BtnCheck>
+                    <MdCheckCircle />
+                </BtnCheck>
 
-            <button>
-                <MdInbox />
-                Caixa de Entrada
-            </button>
-            <button>
-                Filtrar
+                <BtnInbox>
+                    <MdInbox />
+                    <span>Caixa de Entrada</span>
+                </BtnInbox>
+            </div>
+            <BtnFilter>
+                <span>Filtrar</span>
                 <MdFilterList />
-            </button>
+            </BtnFilter>
         </Container>
     );
 };

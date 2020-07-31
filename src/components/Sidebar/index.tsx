@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Resizable, ResizableBox } from "react-resizable";
 
 import api from "../../services/api";
 
@@ -82,6 +83,7 @@ const Sidebar: React.FC = () => {
     }
 
     return (
+        // <ResizableBox width={240} height={240}>
         <SidebarContainer>
             <nav className="scroll">
                 <ul>
@@ -104,6 +106,7 @@ const Sidebar: React.FC = () => {
                 </ul>
             </nav>
         </SidebarContainer>
+        // </ResizableBox>
     );
 };
 

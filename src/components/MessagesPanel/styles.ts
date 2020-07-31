@@ -41,11 +41,11 @@ export const MessagesPanelContainer = styled.div`
 `;
 
 export const NewMessage = styled.button`
-    background:  ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.primary};
     border-radius: 2px;
     height: 32px;
     width: 125px;
-}`;
+`;
 
 export const MarkAllAsRead = styled.button`
     color: ${({ theme }) => theme.colors.primary};
