@@ -1,16 +1,15 @@
 import React from "react";
 
 import { Content } from "./styles";
+import MailRow from "../../components/MailRow";
 
 const m = Array(40).fill("ola");
 const InBox: React.FC = () => {
     return (
         <Content>
-            <div>
+            <div className="scroll">
                 {m.map((e) => (
-                    <>
-                        <h1 style={{ color: "#fff" }}> ola</h1>
-                    </>
+                    <MailRow />
                 ))}
             </div>
         </Content>
