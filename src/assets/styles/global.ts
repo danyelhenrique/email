@@ -43,6 +43,11 @@ h1,h2,h3,h4,h5,h6,p,span,small,strong,input,button,a{
     font-weight: 400;
 }
 
+.cover{
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+}
 .scroll{
     ::-webkit-scrollbar {
   width: 10px;

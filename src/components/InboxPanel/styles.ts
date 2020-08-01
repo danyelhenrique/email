@@ -9,6 +9,7 @@ export const Container = styled.div`
     width: 100%;
     background: ${({ theme }) => theme.colors.tertiary};
     grid-area: inbox_panel;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
     padding: 0 25px;
 

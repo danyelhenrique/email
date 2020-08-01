@@ -1,4 +1,5 @@
 import React from "react";
+import Tooltip from "../Tooltip";
 
 import { MdDehaze, MdDrafts, MdUndo } from "react-icons/md";
 
@@ -16,16 +17,24 @@ const MessagesPanel: React.FC = () => {
                 <MdDehaze />
             </button>
 
-            <NewMessage type="button">Nova mensagem</NewMessage>
+            <NewMessage type="button">
+                <Tooltip textColor="white" message="nova mensagem">
+                    <span> Nova mensagem </span>
+                </Tooltip>
+            </NewMessage>
 
             <MarkAllAsRead type="button">
                 <MdDrafts />
-                Marcar todos como lidos
+                <Tooltip textColor="white" message="marcar todos como lidos">
+                    <span> Marcar todos como lidos </span>
+                </Tooltip>
             </MarkAllAsRead>
 
             <Undo type="button">
                 <MdUndo />
-                Desfazer
+                <Tooltip textColor="white" message="desfazer">
+                    <span> Desfazer </span>
+                </Tooltip>
             </Undo>
         </MessagesPanelContainer>
     );

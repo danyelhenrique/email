@@ -1,4 +1,5 @@
 import React from "react";
+import Tooltip from "../Tooltip";
 
 import { Container, BtnCheck, BtnInbox, BtnFilter } from "./styles";
 import { MdCheckCircle, MdInbox, MdFilterList } from "react-icons/md";
@@ -8,16 +9,22 @@ const InboxPanel: React.FC = () => {
         <Container>
             <div>
                 <BtnCheck>
-                    <MdCheckCircle />
+                    <Tooltip message="selecionar todos" textColor="white">
+                        <MdCheckCircle />
+                    </Tooltip>
                 </BtnCheck>
 
                 <BtnInbox>
                     <MdInbox />
-                    <span>Caixa de Entrada</span>
+                    <Tooltip message="caixa de entrada" textColor="white">
+                        <span>Caixa de Entrada</span>
+                    </Tooltip>
                 </BtnInbox>
             </div>
             <BtnFilter>
-                <span>Filtrar</span>
+                <Tooltip message="filtrar" textColor="white">
+                    <span>Filtrar</span>
+                </Tooltip>
                 <MdFilterList />
             </BtnFilter>
         </Container>
