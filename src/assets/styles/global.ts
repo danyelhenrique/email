@@ -15,7 +15,8 @@ html,body,#root{
     font-family: Roboto ,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #282828;
+    background: ${({ theme }) => theme.background} ;
+
 	max-width: 1366px;
 	margin: 0 auto;
 	font-size: 1rem;

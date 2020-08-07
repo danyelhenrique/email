@@ -1,47 +1,22 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useIsAuthenticated } from "../../hooks/userIsAuthenticated";
-
 import { Link } from "react-router-dom";
 
-import { Button, LinkItem, SelectBtn, Email } from "./styles";
+import { Button, LinkItem, Email } from "./styles";
 
 import Form from "../../components/Form";
 import Input from "../../components/Input";
 
-import {
-    MdCheckCircle,
-    MdRadioButtonUnchecked,
-    MdKeyboardBackspace,
-} from "react-icons/md";
+import { MdKeyboardBackspace } from "react-icons/md";
 
 const Signin: React.FC = () => {
     const [enterEmail, setEnterEmail] = useState(false);
-    const [setKeepSigned, setSetKeepSigned] = useState(false);
     const [email, setEmail] = useState("");
-
-    const { signin } = useIsAuthenticated();
-
-    const Icon = useMemo(
-        () => (setKeepSigned ? MdCheckCircle : MdRadioButtonUnchecked),
-        [setKeepSigned]
-    );
-
-    function handleSubmit(data: any) {
-        // console.log(data);
-        if (email !== "admin@admin.com") {
-            return;
-        }
-
-        if (data.password !== "password") {
-            return;
-        }
-
-        signin();
-    }
+    const { register } = useIsAuthenticated();
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <h4>Sign In</h4>
+        <Form onSubmit={register}>
+            <h4>Register</h4>
             {!enterEmail ? (
                 <>
                     <Input
@@ -52,14 +27,13 @@ const Signin: React.FC = () => {
                         required
                     />
                     <LinkItem>
-                        <p> No account? </p>{" "}
-                        <Link to="/register">Create one! </Link>
+                        <p> Have account? </p> <Link to="/signin">Signin</Link>
                     </LinkItem>
                     <LinkItem>
-                        <Link to="/signin"> Sign in with a security key </Link>
+                        <Link to="/signin">register with a security key </Link>
                     </LinkItem>
                     <LinkItem>
-                        <Link to="/signin">Sign-in options </Link>
+                        <Link to="/signin">register options </Link>
                     </LinkItem>
                     <Button
                         type="button"
@@ -91,24 +65,21 @@ const Signin: React.FC = () => {
                         type="password"
                         required
                     />
-                    <LinkItem>
-                        <SelectBtn
-                            type="button"
-                            onClick={() => setSetKeepSigned(!setKeepSigned)}
-                        >
-                            <Icon />
-                            Keep me signed in
-                        </SelectBtn>
-                    </LinkItem>
+
+                    <Input
+                        name="confirm-password"
+                        placeholder="Confirm You password"
+                        type="password"
+                        required
+                    />
 
                     <LinkItem>
-                        <Link to="/signin">Forgot password? </Link>
-                    </LinkItem>
-                    <LinkItem>
-                        <Link to="/signin"> Sign in with a security key </Link>
+                        <Link to="/register">
+                            Register in with a security key
+                        </Link>
                     </LinkItem>
 
-                    <Button type="submit">Sign In</Button>
+                    <Button type="submit">Register</Button>
                 </>
             )}
         </Form>

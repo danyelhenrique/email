@@ -1,112 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { Resizable, ResizableBox } from "react-resizable";
+import React from "react";
+import { useInboxMail } from "../../hooks/useInboxMail";
 
-import api from "../../services/api";
-
+import { userMenu } from "../../hooks/useMenu";
 import ListItem from "./ListItem";
 
 import { SidebarContainer } from "./styles";
 
-interface ISubMenu {
-    id: number;
-    name: string;
-}
-interface ISidebar {
-    id: number;
-    name: string;
-    subMenus: ISubMenu[];
-}
-
-const mock: ISidebar[] = [
-    {
-        id: 1,
-        name: "Conta 1",
-        subMenus: [
-            {
-                id: 11,
-                name: "Caixa de entrada",
-            },
-            {
-                id: 12,
-                name: "Caixa de saída",
-            },
-        ],
-    },
-    {
-        id: 2,
-        name: "Conta 2",
-        subMenus: [
-            {
-                id: 22,
-                name: "Inbox",
-            },
-        ],
-    },
-    {
-        id: 3,
-        name: "Conta 3",
-        subMenus: [
-            {
-                id: 33,
-                name: "Entrada",
-            },
-            {
-                id: 34,
-                name: "Vip",
-            },
-            {
-                id: 35,
-                name: "Lixo",
-            },
-        ],
-    },
-];
-
-interface IContent {
-    name: string;
-    id: number;
-}
-
 const Sidebar: React.FC = () => {
-    const [sidebarData, setSidebarData] = useState<ISidebar[] | null>(mock);
+    const sidebarData = userMenu();
+    const { setMails } = useInboxMail();
 
-    // useEffect(() => {
-    //     async function createSidebarMenu() {
-    //         const { data } = await api.get<ISidebar[]>("menus");
-    //         setSidebarData(data);
-    //     }
-    //     createSidebarMenu();
-    // }, []);
-
-    function handleClick({ data }: { data: IContent }) {
-        console.log("data", data);
+    async function getSubMenuData(e: Event, id: number) {
+        await setMails(id);
     }
-
     return (
-        // <ResizableBox width={240} height={240}>
         <SidebarContainer>
             <nav className="scroll">
                 <ul>
                     {sidebarData &&
                         sidebarData.map((menu) => (
-                            <>
-                                <ListItem content={menu}>
-                                    <ul>
-                                        {menu.subMenus.map((sub) => (
-                                            <ListItem
-                                                content={sub}
-                                                hasMore={false}
-                                                handleClick={handleClick}
-                                            />
-                                        ))}
-                                    </ul>
-                                </ListItem>
-                            </>
+                            <ListItem content={menu} key={menu.id}>
+                                <ul>
+                                    {menu.subMenus.map((sub) => (
+                                        <ListItem
+                                            key={sub.id}
+                                            content={sub}
+                                            hasMore={false}
+                                            handleClick={({ event }) =>
+                                                getSubMenuData(event, sub.id)
+                                            }
+                                        />
+                                    ))}
+                                </ul>
+                            </ListItem>
                         ))}
                 </ul>
             </nav>
         </SidebarContainer>
-        // </ResizableBox>
     );
 };
 

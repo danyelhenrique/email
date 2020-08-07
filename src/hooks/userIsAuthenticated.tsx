@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { UserCTX } from "../context/userContext";
 
-const isAuthMOck = true;
+function useIsAuthenticated() {
+    const user = useContext(UserCTX);
+    const [loading] = useState(false);
 
-interface IReturn {
-    loading: boolean;
-    isAuth: boolean;
-}
-
-function useIsAuthenticated(): IReturn {
-    const [loading, setLoading] = useState(true);
-    const [isAuth, setIsAuth] = useState(false);
-
-    useEffect(() => {
-        setIsAuth(!!isAuthMOck);
-        setLoading(false);
-    }, [setIsAuth, setLoading]);
-
-    return { loading, isAuth };
+    return { loading, ...user };
 }
 
 export { useIsAuthenticated };

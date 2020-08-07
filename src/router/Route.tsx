@@ -11,13 +11,14 @@ interface IRouteProps extends RouteProps {
 const Route = ({ component: Component, path, ...rest }: IRouteProps) => {
     const { isPrivate = false } = rest;
 
-    const { isAuth, loading } = useIsAuthenticated();
+    const { isAuthenticated, loading } = useIsAuthenticated();
 
     if (loading) {
-        return <h1>load</h1>;
+        return <div> </div>;
     }
-    if (!isAuth && isPrivate) {
-        return <Redirect to="/singin" />;
+
+    if (!isAuthenticated && isPrivate) {
+        return <Redirect to="/signin" />;
     }
 
     return (

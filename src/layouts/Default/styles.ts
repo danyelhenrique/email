@@ -9,4 +9,5 @@ export const Main = styled.main`
         "sidebar content";
     grid-auto-columns: auto 1fr;
     height: 100%;
+    grid-template-rows: 50px 48px 56px 1fr;
 `;

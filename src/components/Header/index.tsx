@@ -1,10 +1,19 @@
 import React from "react";
 import Tooltip from "../Tooltip";
+import { useTranslation } from "react-i18next";
+import { useIsAuthenticated } from "../../hooks/userIsAuthenticated";
 
-import cover from "../../assets/images/friends-monica.jpg";
+import { ConfigurationPanel } from "../../hooks/configurationPanel";
+
 import hederCover from "../../assets/images/pink-header3.jpg";
 
-import { MdSearch, MdApps, MdToday, MdSettings } from "react-icons/md";
+import {
+    MdSearch,
+    MdApps,
+    MdToday,
+    MdSettings,
+    MdPowerSettingsNew,
+} from "react-icons/md";
 
 import {
     HeaderContainer,
@@ -17,6 +26,10 @@ import {
 } from "./styles";
 
 const Header: React.FC = () => {
+    const { t } = useTranslation();
+    const { toogleMenu } = ConfigurationPanel();
+    const { signout } = useIsAuthenticated();
+
     return (
         <HeaderContainer src={hederCover}>
             <ItemsContainer>
@@ -30,25 +43,33 @@ const Header: React.FC = () => {
                 <Form>
                     <MdSearch />
                     <Tooltip message="search">
-                        <input placeholder="Pesquisar" />
+                        <input placeholder={t("pesquisar")} />
                     </Tooltip>
                 </Form>
             </ItemsContainer>
 
             <UserConfiguration>
+                <Button onClick={signout}>
+                    <Tooltip message="logout">
+                        <MdPowerSettingsNew />
+                    </Tooltip>
+                </Button>
                 <Button>
                     <Tooltip message="today">
                         <MdToday />
                     </Tooltip>
                 </Button>
-                <Button>
-                    <Tooltip message="settings">
+                <Button onClick={() => toogleMenu()}>
+                    <Tooltip message={t("configurações")}>
                         <MdSettings />
                     </Tooltip>
                 </Button>
 
                 <UserCover>
-                    <img src={cover} alt="user cover" />
+                    <img
+                        src="https://i.pinimg.com/originals/ba/c4/35/bac435688f1410bb2b93770d2e5642e1.jpg"
+                        alt="user cover"
+                    />
                 </UserCover>
             </UserConfiguration>
         </HeaderContainer>

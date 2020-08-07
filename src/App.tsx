@@ -1,18 +1,30 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
 
 import Routes from "./router";
+import MailContext from "./context/inboxMail";
+import MenuContext from "./context/menuContext";
+import ConfigurationPanels from "./context/configurationPanels";
+import UserContext from "./context/userContext";
 
-import { DarkTheme } from "./assets/styles/themes";
+import Theme from "./context/theme";
+
 import GlobalStyle from "./assets/styles/global";
 import "./assets/styles/css/resizable.css";
 
 const App: React.FC = () => {
     return (
-        <ThemeProvider theme={DarkTheme}>
-            <GlobalStyle />
-            <Routes />
-        </ThemeProvider>
+        <UserContext>
+            <Theme>
+                <GlobalStyle />
+                <ConfigurationPanels>
+                    <MenuContext>
+                        <MailContext>
+                            <Routes />
+                        </MailContext>
+                    </MenuContext>
+                </ConfigurationPanels>
+            </Theme>
+        </UserContext>
     );
 };
 

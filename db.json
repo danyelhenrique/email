@@ -1,0 +1,9 @@
+{
+    "user": {
+        "id": "1",
+        "email": "admin@admin.com",
+        "name": "admin",
+        "password": "password",
+        "cover": "https://i.pinimg.com/originals/ba/c4/35/bac435688f1410bb2b93770d2e5642e1.jpg"
+    }
+}

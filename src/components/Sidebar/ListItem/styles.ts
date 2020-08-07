@@ -15,7 +15,7 @@ export const Container = styled.li<{ isActive: boolean }>`
 
     button {
         display: flex;
-        color: ${({ theme }) => theme.colors.secondary};
+        color: ${({ theme }) => theme.colors.text};
 
         font-weight: 500;
         font-size: 1rem;
@@ -27,7 +27,7 @@ export const Container = styled.li<{ isActive: boolean }>`
         svg {
             height: 30px;
             width: 30px;
-            color: ${({ theme }) => theme.colors.secondary};
+            color: ${({ theme }) => theme.icon};
 
             margin-right: 5px;
         }
@@ -47,16 +47,16 @@ export const Container = styled.li<{ isActive: boolean }>`
                 svg {
                     height: 22px;
                     width: 25px;
-                    color: #fff;
+                    color: ${({ theme }) => theme.icon};
                 }
                 span {
-                    color: ${({ theme }) => theme.colors.secondary};
+                    color: ${({ theme }) => theme.colors.text};
 
                     font-weight: 500;
                     font-size: 1rem;
                 }
                 :hover {
-                    background: ${({ theme }) => darken(1, theme.background)};
+                    background: ${({ theme }) => darken(0.3, theme.background)};
                 }
             }
         }

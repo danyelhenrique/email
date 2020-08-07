@@ -1,0 +1,12 @@
+{
+    "translation": {
+        "pesquisar": "search",
+        "configurações": "configurations",
+        "nova messagem": "new message",
+        "exluir todos os emails": "remove all emails",
+        "arquivar todos os emails Selecionados": "archive all selected emails",
+        "categorizar": "categorize",
+        "desfazer": "undo",
+        "marcar todos como lidos": "mark all as read"
+    }
+}

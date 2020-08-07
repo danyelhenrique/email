@@ -15,7 +15,8 @@ interface IContent {
 interface IProps {
     content: IContent;
     hasMore?: boolean;
-    handleClick?: ({ data }: { data: IContent }) => void;
+    handleClick?: ({ data, event }: { data: IContent; event: Event }) => void;
+    key?: string | number;
 }
 
 const ListItem: React.FC<IProps> = ({
@@ -28,9 +29,9 @@ const ListItem: React.FC<IProps> = ({
 
     const { name } = content;
 
-    function onClick() {
+    function onClick(e: Event) {
         setActive(!active);
-        if (handleClick) handleClick({ data: content });
+        if (handleClick) handleClick({ data: content, event: e });
     }
 
     const Icon = useMemo(
@@ -39,7 +40,7 @@ const ListItem: React.FC<IProps> = ({
     );
 
     return (
-        <Container isActive={active} onClick={onClick}>
+        <Container isActive={active} onClick={(e: any) => onClick(e as Event)}>
             <button>
                 {hasMore ? <Icon /> : <MdInbox />}
                 <span>{name}</span>

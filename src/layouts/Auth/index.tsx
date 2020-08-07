@@ -1,9 +1,9 @@
 import React from "react";
 
-// import { Container } from './styles';
+import { Main } from "./styles";
 
-const Auth: React.FC = () => {
-    return <div />;
+const AuthLayout: React.FC = ({ children }) => {
+    return <Main>{children}</Main>;
 };
 
-export default Auth;
+export default AuthLayout;

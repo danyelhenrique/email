@@ -6,13 +6,15 @@ import AuthRoute from "./AuthRoute";
 
 import InBox from "../pages/InBox";
 import Signin from "../pages/Signin";
+import Register from "../pages/Register";
 
 const router: React.FC = () => {
     return (
         <Switch>
-            <Route path="/" component={InBox} exact />
+            <Route path="/" component={InBox} exact isPrivate />
 
-            <AuthRoute path="/singin" component={Signin} />
+            <AuthRoute path="/signin" component={Signin} />
+            <AuthRoute path="/register" component={Register} />
         </Switch>
     );
 };

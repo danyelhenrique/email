@@ -2,12 +2,13 @@ import { DefaultTheme } from "styled-components";
 
 export const LightTheme: DefaultTheme = {
     colors: {
-        primary: "#ff828a",
+        primary: "#398e86",
         secondary: "#ffff",
-        tertiary: "#333",
-        text: "#fff",
-        border: "#000",
+        tertiary: "#fff",
+        text: "#000",
+        border: "#dedede",
     },
-    background: "#212121",
+    icon: "#000",
+    background: "#ffff",
     primaryFont: "Roboto",
 };

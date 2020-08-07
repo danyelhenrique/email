@@ -1,6 +1,5 @@
 import { DefaultTheme } from "styled-components";
-// #398e86
-// ff828a;
+
 export const DarkTheme: DefaultTheme = {
     colors: {
         primary: "#398e86",
@@ -9,6 +8,7 @@ export const DarkTheme: DefaultTheme = {
         text: "#fff",
         border: "#000",
     },
+    icon: "#fff",
     background: "#212121",
     primaryFont: "Roboto",
 };

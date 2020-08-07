@@ -1,15 +1,19 @@
 import React from "react";
+import { useInboxMail } from "../../hooks/useInboxMail";
 
 import { Content } from "./styles";
 import MailRow from "../../components/MailRow";
 
-const m = Array(40).fill("ola");
 const InBox: React.FC = () => {
+    const { emails } = useInboxMail();
+
     return (
         <Content>
             <div className="scroll">
-                {m.map((e) => (
-                    <MailRow />
+                {emails.map((mail) => (
+                    <div key={mail.id}>
+                        <MailRow {...mail} />
+                    </div>
                 ))}
             </div>
         </Content>

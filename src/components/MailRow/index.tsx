@@ -1,30 +1,33 @@
 import React from "react";
-import image from "../../assets/images/friends-monica.jpg";
+import mockIMG from "../../assets/images/friends-monica.jpg";
+import MainRowItem from "./MainRowItem";
 
-import {
-    Container,
-    CoverAndName,
-    Details,
-    Description,
-    Subject,
-    MailDate,
-} from "./styles";
+interface ISubMenu {
+    id: number | string;
+    name: string;
+    subject: string;
+    owner: string;
+    isSelected: boolean;
+    users: String[];
+}
 
-const MainRow: React.FC = () => {
+interface IProps {
+    id: number | string;
+    subMenuItems: ISubMenu[];
+    key?: string | number;
+}
+
+const MainRow: React.FC<IProps> = ({ subMenuItems }) => {
+    if (subMenuItems.length < 0) {
+        return <div></div>;
+    }
+
     return (
-        <Container>
-            <CoverAndName>
-                <img src={image} alt="" />
-                <span>Microsoft Teams</span>
-            </CoverAndName>
-            <Details>
-                <Description>
-                    Bem-vindo ao Microsoft Teams para sua vida pessoal
-                </Description>
-                <Subject>Microsoft Teams</Subject>
-            </Details>
-            <MailDate>Dom,12/07</MailDate>
-        </Container>
+        <>
+            {subMenuItems.map((mail) => (
+                <MainRowItem mail={{ ...mail, cover: mockIMG }} />
+            ))}
+        </>
     );
 };
 

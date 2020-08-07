@@ -22,7 +22,8 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         margin-right: 20px;
-        color: #fff;
+        color: ${({ theme }) => theme.colors.text};
+
         padding-bottom: 5px;
 
         svg {
@@ -38,7 +39,8 @@ export const Container = styled.div`
 export const BtnCheck = styled.button``;
 
 export const BtnInbox = styled.button`
-    border-bottom: 3px solid #ff828a;
+    border-bottom: 3px solid ${({ theme }) => theme.colors.primary};
+
     svg {
         margin-right: 5px;
     }
@@ -49,3 +51,5 @@ export const BtnFilter = styled.button`
         margin-left: 5px;
     }
 `;
+
+export const SelectMessages = styled.button``;

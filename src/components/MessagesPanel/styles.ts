@@ -58,3 +58,10 @@ export const MarkAllAsRead = styled.button`
 export const Undo = styled.button`
     color: ${({ theme }) => theme.colors.text};
 `;
+
+export const Button = styled.button`
+    color: ${({ theme }) => theme.colors.primary};
+    :hover {
+        background: ${({ theme }) => darken(0.8, theme.background)};
+    }
+`;

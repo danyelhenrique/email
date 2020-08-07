@@ -10,6 +10,7 @@ interface IThemeInterface {
         border: string;
     };
     primaryFont: string;
+    icon: string;
     secundaryFont?: string;
 }
 
